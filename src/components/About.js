@@ -1,12 +1,11 @@
 'use strict'
-//let React = window.React = require('react');
 import React from 'react';
 import bootStrap from 'bootstrap';
 import { Link } from 'react-router'
 import LoginModal from './header/LoginModal';
 import Menu from './header/Menu';
 
-const Logout = {
+let About = {
     componentDidMount: function() {
         // clear authentication here...
     },
@@ -15,11 +14,11 @@ const Logout = {
         	<LoginModal />
         	<Menu />
     		<div className='container'>
-    			<h3>You have successfully logged out.</h3>
-    			<h5>Click <Link to='/'>here</Link> to re-login.</h5>
+    			<h2>About page.</h2>
+    			<h5>Click <a href='#'>here</a> to go to home....</h5>
     		</div>
     	</div>);
     }
 };
 
-module.exports = React.createClass(Logout);
+module.exports = React.createClass(About);

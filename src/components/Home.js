@@ -1,10 +1,11 @@
 'use strict'
-//let React = window.React = require('react');
 import React from 'react';
 import bootStrap from 'bootstrap';
-import { Link } from 'react-router'
+import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router';
 import LoginModal from './header/LoginModal';
 import Menu from './header/Menu';
+
+import { createHistory, useBasename } from 'history';
 
 const Logout = {
     componentDidMount: function() {
@@ -15,8 +16,8 @@ const Logout = {
         	<LoginModal />
         	<Menu />
     		<div className='container'>
-    			<h3>You have successfully logged out.</h3>
-    			<h5>Click <Link to='/'>here</Link> to re-login.</h5>
+    			<h3>Home page.</h3>
+    			<h5>Click <Link to='/about'>here</Link> to go to about.</h5>
     		</div>
     	</div>);
     }
