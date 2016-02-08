@@ -35415,7 +35415,7 @@
 						_react2.default.createElement(
 							'a',
 							{ href: '', className: 'navbar-brand' },
-							_react2.default.createElement('img', { src: 'src/components/images/spa_logo.png', alt: 'Go to Home page' })
+							_react2.default.createElement('img', { src: 'public/images/spa_logo.png', alt: 'Go to Home page' })
 						)
 					),
 					_react2.default.createElement(
