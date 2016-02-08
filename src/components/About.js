@@ -1,6 +1,5 @@
 'use strict'
 import React from 'react';
-//import bootStrap from 'bootstrap';
 import { Link } from 'react-router'
 
 var About = {

@@ -35614,7 +35614,6 @@
 	        );
 	    }
 	};
-	//import bootStrap from 'bootstrap';
 
 	exports.default = _react2.default.createClass(About);
 
