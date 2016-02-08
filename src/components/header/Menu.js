@@ -12,7 +12,7 @@ module.exports = React.createClass({
 	                    <span className="icon-bar"></span>
 	                    <span className="icon-bar"></span>
 	                </button>
-	                <a href="" className="navbar-brand"><img src="public/images/spa_logo.png" alt="Go to Home page" /></a>
+	                <a href="/" className="navbar-brand"><img src="public/images/spa_logo.png" alt="Go to Home page" /></a>
 	            </div>
 	            <div className="navbar-collapse collapse" id="collapsable_menu" role="navigation">
 	                <ul className="nav navbar-nav">
