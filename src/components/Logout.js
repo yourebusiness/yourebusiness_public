@@ -1,5 +1,4 @@
 'use strict'
-//let React = window.React = require('react');
 import React from 'react';
 import bootStrap from 'bootstrap';
 import { Link } from 'react-router'
@@ -7,10 +6,7 @@ import LoginModal from './header/LoginModal';
 import Menu from './header/Menu';
 
 const Logout = {
-    componentDidMount: function() {
-        // clear authentication here...
-    },
-    render: function(){
+    render: function() {
         return (<div>
         	<LoginModal />
         	<Menu />

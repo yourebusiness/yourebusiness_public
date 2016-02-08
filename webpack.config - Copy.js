@@ -1,7 +1,11 @@
 var webpack = require('webpack');
 
 module.exports = {
-    //watch: true,
+    entry: "./src/index.js",
+    output: {
+        path: './public',
+        filename: 'bundle.js',
+    },
     module: {
         loaders: [{
             test: /\.jsx?$/,
