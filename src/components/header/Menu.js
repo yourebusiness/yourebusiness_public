@@ -1,5 +1,4 @@
 'use strict'
-//let React = window.React = require('react');
 import React from 'react';
 import { Link } from 'react-router';
 
@@ -24,7 +23,7 @@ module.exports = React.createClass({
 	                </ul>
 	                <ul className="nav navbar-nav pull-right">
 	                    <li><a href="#myModal" role="button" data-toggle="modal"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
-	                    <li><a href=""><span className="glyphicon glyphicon-registration-mark"></span> Register</a></li>
+	                    <li><a href="#"><span className="glyphicon glyphicon-registration-mark"></span> Register</a></li>
 	                </ul>
 	            </div>
 	        	</div>
