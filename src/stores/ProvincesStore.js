@@ -1,14 +1,10 @@
 var AppDispatcher = require('../actions/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-//var TodoConstants = require('../constants/TodoConstants');
 var assign = require('object-assign');
 
-var CHANGE_EVENT = 'change';
+var CHANGE_EVENT = null;
 
-var myName = 'Jhunex Jun';
-
-var TodoStore = assign({}, EventEmitter.prototype, {
-
+var ProvincesStore = assign({}, EventEmitter.prototype, {
   emitChange: function() {
     this.emit(CHANGE_EVENT);
   },
@@ -22,15 +18,14 @@ var TodoStore = assign({}, EventEmitter.prototype, {
   },
 
   getMyName: function() {
-    return {name: myName};
+    return {provinces: };
   },
 
   dispatcherIndex: AppDispatcher.register(function(payload) {
-    var action = payload.source;
-    let name = payload.data;
+    let action = payload.ActionType;
 
     switch(action) {
-      case 'VIEW_ACTION':
+      case 'GET_PROVINCES':
           myName = name;
           TodoStore.emitChange();
         break;
@@ -41,4 +36,4 @@ var TodoStore = assign({}, EventEmitter.prototype, {
 
 });
 
-module.exports = TodoStore;
+module.exports = ProvincesStore;

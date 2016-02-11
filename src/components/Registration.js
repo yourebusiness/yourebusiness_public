@@ -1,6 +1,13 @@
 import React from 'react';
+import RegistrationActionCreator from '../actions/RegistrationActionCreator';
 
 let Registration = {
+    getDefaultProps: function() {
+        return {
+            provinces: RegistrationActionCreator.getProvinces()
+        }
+    },
+
 	render: function() {
 		return (<div className="container">
 				<div className="row">

@@ -1,12 +1,16 @@
 {
-  "name": "test",
+  "name": "YourSpa-Web",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "plm",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jhunexjun/yourspaWeb.git"
+  },
+  "author": "Jhunexjun",
   "license": "ISC",
   "dependencies": {
     "babel-preset-react": "^6.3.13",
@@ -21,7 +25,8 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^0.13",
-    "webpack-stream": "^3.1.0"
+    "webpack-stream": "^3.1.0",
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
