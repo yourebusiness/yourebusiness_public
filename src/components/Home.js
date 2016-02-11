@@ -11,7 +11,7 @@ var Home = {
         return (<div>
         	<LoginModal />
         	<Menu />
-            <RouteHandler/>
+            <RouteHandler />
     	</div>);
     }
 };
