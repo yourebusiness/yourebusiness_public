@@ -1,19 +1,19 @@
+'use strict'
 import Dispatcher from '../dispatcher/Dispatcher';
-import assign from 'object-assign';
 import Actions from '../constants/Actions';
 import RegistrationDao from '../services/RegistrationDao';
 
-let RegistrationActionCreate = assign({}, Dispatcher.prototype, {
+export default {
 	getProvinces: function() {
 		RegistrationDao.getProvinces();
-	},
-	getProvincesDone: function() {
-		this.dispatch({
+	},	
+	getProvincesDone: function(data) {
+		Dispatcher.dispatch({
 			actionType: Actions.GET_PROVINCES,
-			data: data,
+			data
 		});
 	}
 
-});
+}
 
-module.exports = RegistrationActionCreate;
+//module.exports = RegistrationActionCreator;

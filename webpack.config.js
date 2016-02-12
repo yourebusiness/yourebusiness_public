@@ -3,6 +3,11 @@ var webpack = require('webpack');
 module.exports = {
     //watch: true,
     module: {
+        /*preLoaders: [{
+            test: /\.jsx?$/,
+            loaders: ['eslint'],
+            //include: PATHS.app
+        }],*/
         loaders: [{
             test: /\.jsx?$/,
             exclude: /(node_modules|bower_components)/,

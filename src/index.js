@@ -1,6 +1,5 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import Router, { DefaultRoute, Link, Route } from 'react-router';
+import Router, { DefaultRoute, Route } from 'react-router';
 
 import Home from './components/Home';
 import About from './components/About';

@@ -1,39 +1,26 @@
-var AppDispatcher = require('../actions/AppDispatcher');
-var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign');
+'use strict';
+import Dispatcher from '../dispatcher/Dispatcher';
+import assign from 'object-assign';
+import BaseStore from './BaseStore';
+import Actions from '../constants/Actions';
 
-var CHANGE_EVENT = null;
+let provinces = {};
 
-var ProvincesStore = assign({}, EventEmitter.prototype, {
-  emitChange: function() {
-    this.emit(CHANGE_EVENT);
-  },
+let ProvincesStore = assign(BaseStore(), {
+    getProvincesList: function() {
+        return provinces;
+    }
+});
 
-  addChangeListener: function(callback) {
-    this.on(CHANGE_EVENT, callback);
-  },
-
-  removeChangeListener: function(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
-  },
-
-  getMyName: function() {
-    return {provinces: };
-  },
-
-  dispatcherIndex: AppDispatcher.register(function(payload) {
-    let action = payload.ActionType;
-
-    switch(action) {
-      case 'GET_PROVINCES':
-          myName = name;
-          TodoStore.emitChange();
-        break;
+ProvincesStore.dispatchToken = Dispatcher.register(function(payload) {
+    switch(payload.actionType) {
+        case Actions.GET_PROVINCES:
+            provinces = payload.data;
+            ProvincesStore.emitChange();
+            break;
     }
 
     return true; // No errors. Needed by promise in Dispatcher.
-  })
-
 });
 
 module.exports = ProvincesStore;

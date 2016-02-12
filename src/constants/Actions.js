@@ -1,5 +1,6 @@
 import keyMirror from 'keymirror';
 
 export default keyMirror({
-	GET_PROVINCES: null,
+	CHANGE_EVENT: null,
+	GET_PROVINCES: null
 });

@@ -1,19 +1,25 @@
 import $ from 'jquery';
 import publicVar from '../constants/publicVar';
+import RegistrationActionCreator from '../actions/RegistrationActionCreator';
 
 export default {
 	getProvinces: function() {
-		let provinces;
-
-		$.ajax({
-			url: publicVar.getUnsecuredEndpoint() + "/index.php/api/getProvinces",
-			success: function(data, textStatus, jqXHR) {
-				console.log("Data:", data);
-			},
+		var promise = new Promise(function(resolve, reject) {
+			$.ajax({
+				url: publicVar.getUnsecuredEndpoint() + '/index.php/api/getProvinces',
+				success: function(data, textStatus, jqXHR) {
+					resolve(data);		
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					reject(errorThrown);
+				}
+			});
 		});
 
-		/*function success() {
-			
-		}*/
+		promise.then(function(data) {
+			RegistrationActionCreator.getProvincesDone(data);
+		}, function(reason) {
+			console.log('Error fetching provinces: ', reason);
+		});
 	}
 }

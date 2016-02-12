@@ -1,13 +1,24 @@
 import React from 'react';
 import RegistrationActionCreator from '../actions/RegistrationActionCreator';
+import ProvincesStore from '../stores/ProvincesStore';
+
+function getProvincesList() {
+    return {
+        provinces: ProvincesStore.getProvincesList()
+    }
+}
 
 let Registration = {
     getDefaultProps: function() {
-        return {
-            provinces: RegistrationActionCreator.getProvinces()
-        }
+        RegistrationActionCreator.getProvinces();
     },
-
+    componentDidMount: function() {
+        ProvincesStore.addChangeListener(this._onChange);
+    },
+    _onChange: function() {
+        this.setState(getProvincesList());
+        console.log("_onChange(): ", getProvincesList());
+    },
 	render: function() {
 		return (<div className="container">
 				<div className="row">
@@ -27,14 +38,14 @@ let Registration = {
 
                 <form className="form-horizontal" id="form" method="post" action="#">
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="company">Company name</label>
+                        <label className="col-sm-3 control-label" htmlFor="company">Company name</label>
                         <div className="col-sm-9">
                             <input className="form-control" type="text" id="company" name="company" placeholder="Company name" />
                         </div>
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="province">Province</label>
+                        <label className="col-sm-3 control-label" htmlFor="province">Province</label>
                         <div className="col-sm-9">
                             <select className="form-control" id="province" name="province">
                                 <option value="0">-- select --</option>
@@ -44,7 +55,7 @@ let Registration = {
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="city">City</label>
+                        <label className="col-sm-3 control-label" htmlFor="city">City</label>
                         <div className="col-sm-9">
                             <select className="form-control" id="city" name="city">
                                 <option value="0">-- select --</option>
@@ -53,28 +64,28 @@ let Registration = {
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="address">Address</label>
+                        <label className="col-sm-3 control-label" htmlFor="address">Address</label>
                         <div className="col-sm-9">
                             <input className="form-control" type="text" id="address" name="address" placeholder="Address" />
                         </div>
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="phoneNo">Phone number</label>
+                        <label className="col-sm-3 control-label" htmlFor="phoneNo">Phone number</label>
                         <div className="col-sm-9">
                             <input className="form-control" type="text" id="phoneNo" name="phoneNo" placeholder="Phone number" />
                         </div>
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="companyWebsite">Company website</label>
+                        <label className="col-sm-3 control-label" htmlFor="companyWebsite">Company website</label>
                         <div className="col-sm-9">
                             <input className="form-control" type="text" id="companyEmail" name="companyWebsite" placeholder="Company website" />
                         </div>
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="tin">TIN</label>
+                        <label className="col-sm-3 control-label" htmlFor="tin">TIN</label>
                         <div className="col-sm-9">
                             <input type="text" className="form-control" id="tin" name="tin" placeholder="Company TIN" />
                         </div>
@@ -82,25 +93,25 @@ let Registration = {
                     <hr />
                     <h5>Administrator</h5> <hr />
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-2 control-label" for="fName">First name</label>
+                        <label className="col-sm-2 control-label" htmlFor="fName">First name</label>
                         <div className="col-sm-4">
                             <input type="text" className="form-control" id="fName" name="fName" placeholder="First name" />
                         </div>
-                        <label className="col-sm-2 control-label" for="lName">Last name</label>
+                        <label className="col-sm-2 control-label" htmlFor="lName">Last name</label>
                         <div className="col-sm-4">
                             <input type="text" className="form-control" id="lName" name="lName" placeholder="Last name" />
                         </div>
                     </div>
                     
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="userEmail">Email</label>
+                        <label className="col-sm-3 control-label" htmlFor="userEmail">Email</label>
                         <div className="col-sm-9">
                             <input type="email" className="form-control" id="userEmail" name="userEmail" placeholder="User email" />
                         </div>
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="gender">Gender</label>
+                        <label className="col-sm-3 control-label" htmlFor="gender">Gender</label>
                         <div className="col-sm-9">
                             <select className="form-control" id="gender" name="gender">
                                 <option value="0">-- select --</option>
@@ -111,13 +122,13 @@ let Registration = {
                     </div>
 
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="password">Password</label>
+                        <label className="col-sm-3 control-label" htmlFor="password">Password</label>
                         <div className="col-sm-9">
                             <input type="password" className="form-control" id="password" name="password" placeholder="Password" />
                         </div>
                     </div>
                     <div className="form-group registerSubGroup">
-                        <label className="col-sm-3 control-label" for="confirmPassword">Confirm Password</label>
+                        <label className="col-sm-3 control-label" htmlFor="confirmPassword">Confirm Password</label>
                         <div className="col-sm-9">
                             <input type="password" className="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" />
                         </div>
@@ -130,7 +141,7 @@ let Registration = {
                             <h2>Captcha here</h2>
                         </div>
                         <div className="col-md-4">
-                            <input id="captcha" name="captcha" type="text" className="form-control" autocomplete="off" placeholder="Enter captcha here" />
+                            <input id="captcha" name="captcha" type="text" className="form-control" autoComplete="off" placeholder="Enter captcha here" />
                         </div>
                     </div>
 
