@@ -9,7 +9,10 @@ function getProvincesList() {
 }
 
 let Registration = {
-    getDefaultProps: function() {
+    getInitialState: function() {
+        return { provinces: null };
+    },
+    componentWillMount: function() {
         RegistrationActionCreator.getProvinces();
     },
     componentDidMount: function() {
@@ -17,9 +20,16 @@ let Registration = {
     },
     _onChange: function() {
         this.setState(getProvincesList());
-        console.log("_onChange(): ", getProvincesList());
     },
 	render: function() {
+        let renderProvinces = null;
+
+        if (this.state.provinces) {
+            renderProvinces = this.state.provinces.map((province, index) => {
+                return (<option value={province.id} key={index}>{province.provinceName}</option>);
+            });
+        }
+
 		return (<div className="container">
 				<div className="row">
             <div className="col-sm-6">
@@ -49,7 +59,7 @@ let Registration = {
                         <div className="col-sm-9">
                             <select className="form-control" id="province" name="province">
                                 <option value="0">-- select --</option>
-                                    <option value=""></option>
+                                {renderProvinces}
                             </select>
                         </div>
                     </div>
