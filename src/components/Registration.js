@@ -8,25 +8,44 @@ function getProvincesList() {
     }
 }
 
+function getCitiesList() {
+    return {
+        cities: ProvincesStore.getCitiesList()
+    }
+}
+
 let Registration = {
     getInitialState: function() {
-        return { provinces: null };
+        return { provinces: null, cities: null };
     },
     componentWillMount: function() {
         RegistrationActionCreator.getProvinces();
     },
     componentDidMount: function() {
-        ProvincesStore.addChangeListener(this._onChange);
+        ProvincesStore.addChangeListener(this._onFetchedProvinces);
+        ProvincesStore.addChangeListener(this._renderOnSelectedProvince);
     },
-    _onChange: function() {
+    _onFetchedProvinces: function() {
         this.setState(getProvincesList());
+    },
+    _onSelectedProvince: function() {
+        RegistrationActionCreator.getCitiesByProvinceId(this.refs.province.value);
+    },
+    _renderOnSelectedProvince: function() {
+        this.setState(getCitiesList());
     },
 	render: function() {
         let renderProvinces = null;
+        let renderCities = null;
 
         if (this.state.provinces) {
             renderProvinces = this.state.provinces.map((province, index) => {
                 return (<option value={province.id} key={index}>{province.provinceName}</option>);
+            });
+        }
+        if (this.state.cities) {
+            renderCities = this.state.cities.map((city, index) => {
+                return (<option value={city.id} key={index}>{city.cityName}</option>);
             });
         }
 
@@ -57,7 +76,7 @@ let Registration = {
                     <div className="form-group registerSubGroup">
                         <label className="col-sm-3 control-label" htmlFor="province">Province</label>
                         <div className="col-sm-9">
-                            <select className="form-control" id="province" name="province">
+                            <select className="form-control" ref="province" name="province" onChange={this._onSelectedProvince}>
                                 <option value="0">-- select --</option>
                                 {renderProvinces}
                             </select>
@@ -69,6 +88,7 @@ let Registration = {
                         <div className="col-sm-9">
                             <select className="form-control" id="city" name="city">
                                 <option value="0">-- select --</option>
+                                {renderCities}
                             </select>
                         </div>
                     </div>

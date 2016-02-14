@@ -12,8 +12,16 @@ export default {
 			actionType: Actions.GET_PROVINCES,
 			data
 		});
+	},
+	getCitiesByProvinceId: function(id) {
+		RegistrationDao.getCitiesByProvinceId(id);
+	},
+	getCitiesByProvinceIdDone: function(data) {
+		Dispatcher.dispatch({
+			actionType: Actions.GET_CITIES,
+			data
+		});
 	}
-
 }
 
 //module.exports = RegistrationActionCreator;

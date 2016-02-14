@@ -4,7 +4,7 @@ import RegistrationActionCreator from '../actions/RegistrationActionCreator';
 
 export default {
 	getProvinces: function() {
-		var promise = new Promise(function(resolve, reject) {
+		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
 				url: publicVar.getUnsecuredEndpoint() + '/index.php/api/getProvinces',
 				success: function(data, textStatus, jqXHR) {
@@ -21,5 +21,24 @@ export default {
 		}, function(reason) {
 			console.log('Error fetching provinces: ', reason);
 		});
+	},
+	getCitiesByProvinceId: function(id) {
+		let promise = new Promise(function(resolve, reject) {
+			$.ajax({
+				url: publicVar.getUnsecuredEndpoint () + '/index.php/api/getCity/' + id,
+	            success:function(data) {
+	                resolve(data);
+	            },
+	            error: function(jqXHR, textStatus, errorThrown) {
+	                reject(errorThrown)
+	            }
+			});
+		});
+
+		promise.then(function(data) {
+			RegistrationActionCreator.getCitiesByProvinceIdDone(data);
+		}, function(reason) {
+			console.log('Error fetching cities: ', reason);
+		});
 	}
-}
+};
