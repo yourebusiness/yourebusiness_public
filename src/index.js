@@ -5,6 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import HomeContents from './components/HomeContents';
 import Registration from './components/Registration';
+import SuccessRegistration from './components/SuccessRegistration';
 
 let routes = (  
   <Route name="app" path="/" handler={Home}>
@@ -12,6 +13,7 @@ let routes = (
     <Route name="about" path="/about" handler={About}/>
     <Route name="home" path="/home" handler={HomeContents}/>
     <Route name="registration" path="/registration" handler={Registration}/>
+    <Route name="successRegistration" path="/successregistration" handler={SuccessRegistration}/>
   </Route>
 );
 

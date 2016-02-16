@@ -4,7 +4,10 @@ const endpoint = {
 	domain: 'yourspa.com',
 	domainWithIndex: 'yourspa.com/index.php',
 
-	getUnsecuredEndpoint: function() {
+	getUnsecuredEndpointWithIndex: function() {
+		return this.unSecuredScheme + this.domainWithIndex;
+	},
+	getUnsecuredEndpointWithoutIndex: function() {
 		return this.unSecuredScheme + this.domain;
 	}
 }
