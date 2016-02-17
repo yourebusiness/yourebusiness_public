@@ -2,14 +2,12 @@
 import Dispatcher from '../dispatcher/Dispatcher';
 import Actions from '../constants/Actions';
 import RegistrationDao from '../services/RegistrationDao';
-import publicVar from '../constants/publicVar';
-//import SuccessRegistration from '../components/SuccessRegistration';
-import Router from 'react-router';
+import { HashLocation } from 'react-router';
 
 export default {
 	getProvinces: function() {
 		RegistrationDao.getProvinces();
-	},	
+	},
 	getProvincesDone: function(data) {
 		Dispatcher.dispatch({
 			actionType: Actions.GET_PROVINCES,
@@ -30,17 +28,17 @@ export default {
 	},
 	onSubmitDone: function(data) {
 		if(parseInt(data.statusCode) == 0){
-			//console.log(Router);
-			//Router.transitionTo('/successregistration');
-
-            let loc = window.location, location;
+			// this is the old and manual way to navigate around outside of the react component.
+            /*let loc = window.location, location;
             if (loc.port)
         		location = loc.protocol.concat('//', loc.hostname, ':', loc.port, '/#', '/successregistration');
 			else
         		location = loc.protocol.concat('//', loc.hostname, '/#', '/successregistration');
 
-        	window.location = location;
+        	window.location = location;*/
+
+        	HashLocation.push('/successregistration');
         } else
             alert(data.statusMessage.concat(' ', data.statusDesc));
 	}
-}
+};

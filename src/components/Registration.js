@@ -30,6 +30,7 @@ let Registration = {
     componentDidMount: function() {
         ProvincesStore.addChangeListener(this._onFetchedProvinces);
         ProvincesStore.addChangeListener(this._renderOnSelectedProvince);
+        this.refs.company.focus();
     },
     // it is always a good idea to remove listener when unmounting
     componentWillUnmount: function() {
