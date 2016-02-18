@@ -37,8 +37,9 @@ export default {
 
         	window.location = location;*/
 
+        	// Based from https://github.com/reactjs/react-router/blob/master/docs/guides/NavigatingOutsideOfComponents.md
         	HashLocation.push('/successregistration');
         } else
             alert(data.statusMessage.concat(' ', data.statusDesc));
-	}
+	},
 };

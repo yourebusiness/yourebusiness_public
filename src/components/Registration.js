@@ -1,18 +1,21 @@
 import React from 'react';
 import RegistrationActionCreator from '../actions/RegistrationActionCreator';
-import ProvincesStore from '../stores/ProvincesStore';
+import RegistrationStore from '../stores/RegistrationStore';
 import Alert from './Alert';
 import $ from 'jquery';
+import Recaptcha from 'react-recaptcha';
+
+const sitekey = '6LfIjBgTAAAAAPvzbsaT1ACX6tkQpsldCRM9Fz1r';
 
 function getProvincesList() {
     return {
-        provinces: ProvincesStore.getProvincesList()
+        provinces: RegistrationStore.getProvincesList()
     }
 }
 
 function getCitiesList() {
     return {
-        cities: ProvincesStore.getCitiesList()
+        cities: RegistrationStore.getCitiesList()
     }
 }
 
@@ -28,14 +31,14 @@ let Registration = {
         RegistrationActionCreator.getProvinces();
     },
     componentDidMount: function() {
-        ProvincesStore.addChangeListener(this._onFetchedProvinces);
-        ProvincesStore.addChangeListener(this._renderOnSelectedProvince);
+        RegistrationStore.addChangeListener(this._onFetchedProvinces);
+        RegistrationStore.addChangeListener(this._renderOnSelectedProvince);
         this.refs.company.focus();
     },
     // it is always a good idea to remove listener when unmounting
     componentWillUnmount: function() {
-        ProvincesStore.removeChangeListener(this._onFetchedProvinces);
-        ProvincesStore.removeChangeListener(this._renderOnSelectedProvince);
+        RegistrationStore.removeChangeListener(this._onFetchedProvinces);
+        RegistrationStore.removeChangeListener(this._renderOnSelectedProvince);
     },
     _onFetchedProvinces: function() {
         this.setState(getProvincesList());
@@ -64,8 +67,7 @@ let Registration = {
         city = this.refs.city.value.trim(),
         gender = this.refs.gender.value.trim(),
         password = this.refs.password.value.trim(),
-        confirmPassword = this.refs.confirmPassword.value.trim(),
-        captcha = this.refs.captcha.value.trim();
+        confirmPassword = this.refs.confirmPassword.value.trim();
 
         if (province == 0) {
             this.state.errorMessage = "Please choose province.";
@@ -109,10 +111,6 @@ let Registration = {
         }
         if (password !== confirmPassword) {
             this.state.errorMessage = "Password and confirm password are not the same.";
-            this.state.displayAlert = true;
-        }
-        if (captcha.length < 5) {
-            this.state.errorMessage = "Invalid captcha.";
             this.state.displayAlert = true;
         }
 
@@ -253,10 +251,7 @@ let Registration = {
 
                     <div className="form-group">
                         <div className="col-md-4">
-                            <h2>Captcha here</h2>
-                        </div>
-                        <div className="col-md-4">
-                            <input id="captcha" name="captcha" type="text" className="form-control" autoComplete="off" placeholder="Enter captcha here" ref="captcha" />
+                            <Recaptcha sitekey={sitekey} />
                         </div>
                     </div>
 

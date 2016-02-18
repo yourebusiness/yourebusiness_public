@@ -6,7 +6,7 @@ export default {
 	getProvinces: function() {
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
-				url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/getProvinces'),
+				url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/getProvinces?'),
 				success: function(data, textStatus, jqXHR) {
 					resolve(data);		
 				},
