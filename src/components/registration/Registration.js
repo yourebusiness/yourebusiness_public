@@ -1,7 +1,7 @@
 import React from 'react';
-import RegistrationActionCreator from '../actions/RegistrationActionCreator';
-import RegistrationStore from '../stores/RegistrationStore';
-import Alert from './Alert';
+import RegistrationActionCreator from '../../actions/RegistrationActionCreator';
+import RegistrationStore from '../../stores/RegistrationStore';
+import Alert from '../Alert';
 import $ from 'jquery';
 import Recaptcha from 'react-recaptcha';
 
@@ -101,6 +101,10 @@ let Registration = {
             this.state.errorMessage = "Invalid last name.";
             this.state.displayAlert = true;
         }
+        if (userEmail.length < 6) {
+            this.state.errorMessage = "Invalid Email.";
+            this.state.displayAlert = true;
+        }
         if (password.length < 6) {
             this.state.errorMessage = "Password should be at least 6 alphanumeric characters.";
             this.state.displayAlert = true;
@@ -125,7 +129,6 @@ let Registration = {
     },
 	render: function() {
         let renderProvinces = null, renderCities = null;
-        let AlertComponent = null;
 
         if (this.state.provinces) {
             renderProvinces = this.state.provinces.map((province, index) => {
@@ -146,7 +149,7 @@ let Registration = {
                 <h5>Company Details</h5> <hr />
                 <p>Fill out the form completely to use the services.</p>
                 
-                <Alert message={this.state.errorMessage} />
+                <Alert message={this.state.errorMessage} alertType="danger" />
 
                 <form className="form-horizontal" id="form" method="post" action="#">
                     <div className="form-group registerSubGroup">

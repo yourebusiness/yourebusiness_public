@@ -41,5 +41,5 @@ export default {
         	HashLocation.push('/successregistration');
         } else
             alert(data.statusMessage.concat(' ', data.statusDesc));
-	},
+	}
 };
