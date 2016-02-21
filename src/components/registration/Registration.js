@@ -159,14 +159,6 @@ let Registration = {
                 <hr />
 
                 <form className="form-horizontal" id="form" ref="registrationForm" method="post" action="#">
-                    <h5>Captcha</h5>
-                    <div className="form-group registerSubGroup">
-                        <p>Refresh the page if no captcha image is shown below.</p>
-                        <div className="col-md-4">
-                            <Recaptcha sitekey={sitekey} />
-                        </div>
-                    </div><hr />
-
                     <h5>Company Details</h5><hr />
 
                     <div className="form-group registerSubGroup">
@@ -264,6 +256,14 @@ let Registration = {
                         <label className="col-sm-3 control-label" htmlFor="confirmPassword">Confirm Password</label>
                         <div className="col-sm-9">
                             <input type="password" className="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" ref="confirmPassword" />
+                        </div>
+                    </div><hr />
+
+                    <h5>Captcha</h5>
+                    <div className="form-group registerSubGroup">
+                        <p>Refresh the page if no captcha image is shown below.</p>
+                        <div className="col-md-4">
+                            <Recaptcha sitekey={sitekey} />
                         </div>
                     </div>
 

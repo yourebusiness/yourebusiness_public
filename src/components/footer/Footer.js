@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default React.createClass({
     render: function() {
@@ -11,9 +12,9 @@ export default React.createClass({
 			                <div className="col-sm-2">
 			                    <h6>Navigation</h6>
 			                    <ul className="list-unstyled">
-			                        <li><a href="#"><span className="glyphicon glyphicon-home"></span> Home</a></li>
+			                        <li><Link to="home"><span className="glyphicon glyphicon-home"></span> Home</Link></li>
 			                        <li><a href="#"><span className="glyphicon glyphicon-wrench"></span> Services</a></li>
-			                        <li><a href="http://yourspa.com/index.php/aboutus/view"><span className="glyphicon glyphicon-grain"></span> About Us</a></li>
+			                        <li><Link to="about"><span className="glyphicon glyphicon-grain"></span> About Us</Link></li>
 			                    </ul>
 			                </div>
 			                <div className="col-sm-8"></div>
