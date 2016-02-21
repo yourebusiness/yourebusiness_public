@@ -34,7 +34,7 @@ export default React.createClass({
 		let email = this.refs.email.value.trim();
 
 		if (email.length < 6) {
-			this.state.message = "Please enter valid email address.";
+			this.state.status.statusDesc = "Please enter valid email address.";
             this.state.displayAlert = true;
         }
 
@@ -50,16 +50,16 @@ export default React.createClass({
 
 		return (<div className="container">
 				<div className="row">
-					<div className="col-sm-4">
+					<div className="col-xs-4">
 						<h4 className="page_title">Forgot Password</h4>
 						{renderAlert}
 		            	<p>Enter your email.</p>
-		            	<input ref="email" type="text" className="form-control" placeholder="Enter email address" />
+		            	<input ref="email" type="email" className="form-control" placeholder="Enter email address" />
 		            	<button type="button" className="btn btn-primary" onClick={this._onClick}>Send</button>
 					</div>
-					<div className="col-sm-4">						
+					<div className="col-xs-4">						
 					</div>
-					<div className="col-sm-4" />
+					<div className="col-xs-4" />
 				</div>
 			</div>);
 	}

@@ -7,7 +7,7 @@ export default {
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
 	            type: "get",
-	            url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/signIn2'),
+	            url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/forgotPassword'),
 	            data: data,
 	            success: function(data) {
 	                resolve(data);

@@ -20,7 +20,6 @@ var Home = {
                         <a href="#myCarousel" className="left carousel-control" data-slide="prev"><span className="icon-prev"></span></a>
                         <a href="#myCarousel" className="right carousel-control" data-slide="next"><span className="icon-next"></span></a>
                     </div>
-
                     <div className="well">
                         <div className="page-header">
                             <h4>Designed for small Spa Business</h4>

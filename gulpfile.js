@@ -4,7 +4,7 @@ var WebpackDevServer = require("webpack-dev-server");
 var rename = require("gulp-rename");
 
 
-gulp.task('default', ['build', 'copy-css', 'copy-images']);
+gulp.task('default', ['build', 'copy-css', 'copy-font', 'copy-images']);
 
 var renameTheFile = {
 	dirname: "public",
@@ -25,6 +25,12 @@ gulp.task('copy-css', function() {
 	gulp.src('./src/includes/css/*.css')
 	.pipe(gulp.dest('./public/css'));
 });
+
+gulp.task('copy-font', function() {
+	gulp.src('./src/includes/bootstrap/*/*')
+	.pipe(gulp.dest('./public/bootstrap'));
+});
+
 
 gulp.task('copy-images', function() {
 	gulp.src('./src/includes/images/*')

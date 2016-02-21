@@ -29,7 +29,7 @@ export default React.createClass({
 			alertComponent = (<div className={alertClass} role="alert">
                         <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <strong className="sr-only">Error:</strong>
-                        <strong id="message">{this.props.message}</strong>
+                        <strong id="message"> {this.props.message}</strong>
                 </div>);
 		}
 

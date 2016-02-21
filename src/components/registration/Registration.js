@@ -127,6 +127,14 @@ let Registration = {
         else
             RegistrationActionCreator.onSubmit(data);        
     },
+    _onCancel: function() {
+        //let formComponent = $('#form');
+        this.refs.registrationForm.getDOMNode().reset;
+
+        /*formComponent.find('[name]').each(function(index, component) {
+            component.value = "";
+        });*/
+    },
 	render: function() {
         let renderProvinces = null, renderCities = null;
 
@@ -146,12 +154,21 @@ let Registration = {
             <div className="col-sm-6">
                 <h4 className="page_title">Register</h4>
                 <hr />
-                <h5>Company Details</h5> <hr />
                 <p>Fill out the form completely to use the services.</p>
-                
                 <Alert message={this.state.errorMessage} alertType="danger" />
+                <hr />
 
-                <form className="form-horizontal" id="form" method="post" action="#">
+                <form className="form-horizontal" id="form" ref="registrationForm" method="post" action="#">
+                    <h5>Captcha</h5>
+                    <div className="form-group registerSubGroup">
+                        <p>Refresh the page if no captcha image is shown below.</p>
+                        <div className="col-md-4">
+                            <Recaptcha sitekey={sitekey} />
+                        </div>
+                    </div><hr />
+
+                    <h5>Company Details</h5><hr />
+
                     <div className="form-group registerSubGroup">
                         <label className="col-sm-3 control-label" htmlFor="company">Company name</label>
                         <div className="col-sm-9">
@@ -250,19 +267,10 @@ let Registration = {
                         </div>
                     </div>
 
-                    <h5>Captcha</h5> <hr />
-
-                    <div className="form-group">
-                        <div className="col-md-4">
-                            <Recaptcha sitekey={sitekey} />
-                        </div>
-                    </div>
-
                     <div className="form-group">
                         <hr />
                         <div className="pull-right">
                             <button type="submit" className="btn btn-primary" onClick={this._onSubmit}>Submit</button>
-                            <button type="button" className="btn btn-default" onclick="#">Cancel</button>
                         </div>
                     </div>
                 </form>
