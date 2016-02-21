@@ -11,7 +11,7 @@ export default {
 	},
 	onSubmitDone: function(data) {
 		if (parseInt(data.statusCode) == 0) {
-        	HashLocation.push('/forgotpasswordsuccess');
+        	HashLocation.push('/forgotpasswordemailsent');
         } else {
         	Dispatcher.dispatch({
 				actionType: Actions.FORGOT_PASSWORD_ERROR,

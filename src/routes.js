@@ -7,7 +7,8 @@ import Registration from './components/registration/Registration';
 import SuccessRegistration from './components/registration/SuccessRegistration';
 import Login from './components/Login';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
-import ForgotPasswordSuccess from './components/forgotPassword/ForgotPasswordSuccess';
+import ForgotPasswordEmailSent from './components/forgotPassword/ForgotPasswordEmailSent';
+import ForgotPasswordReset from './components/forgotPassword/ForgotPasswordReset';
 
 export default (  
   <Route name="app" path="/" handler={Home}>
@@ -18,6 +19,8 @@ export default (
     <Route name="successRegistration" path="/successregistration" handler={SuccessRegistration} />
     <Route name="login" path="/login" handler={Login}/>
     <Route name="forgotpassword" path="/forgotpassword" handler={ForgotPassword} />
-    <Route name="forgotpasswordsuccess" path="/forgotpasswordsuccess" handler={ForgotPasswordSuccess} />
+    <Route name="forgotpasswordemailsent" path="/forgotpasswordemailsent" handler={ForgotPasswordEmailSent} />
+    // link sent throught email; http://localhost:8080/#/forgotPasswordReset?hash=0PBKERM59SzVOmT63viDHxwWrqeytua2j8UnZXCF
+    <Route name="forgotPasswordReset" path="/forgotPasswordReset" handler={ForgotPasswordReset} />
   </Route>
 );
