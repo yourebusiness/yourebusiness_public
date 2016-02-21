@@ -164,12 +164,12 @@ html, body {
     padding: 10px;
 }
 
-footer h6 {
+#footer h6 {
     font-size: 12px;
     font-weight: bold;
 }
 
-footer ul {
+#footer ul {
     font-size: 12px;
 }
 
