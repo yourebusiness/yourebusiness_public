@@ -11,5 +11,6 @@ export default keyMirror({
 	LOGIN: null,
 
 	// forgot password
-	FORGOT_PASSWORD_ERROR: null
+	FORGOT_PASSWORD_ERROR: null,
+	FORGOT_PASSWORD_RESET_DONE: null
 });

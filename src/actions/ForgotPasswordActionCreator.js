@@ -18,5 +18,14 @@ export default {
 				data
 			});
         }
+	},
+	forgotPasswordReset: function(hash) {
+		ForgotPasswordDao.forgotPasswordReset(hash);
+	},
+	forgotPasswordResetDone: function(data) {
+		Dispatcher.dispatch({
+			actionType: Actions.FORGOT_PASSWORD_RESET_DONE,
+			data
+		});
 	}
 }

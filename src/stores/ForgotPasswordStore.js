@@ -18,6 +18,9 @@ ForgotPasswordStore.dispatchToken = Dispatcher.register(function(payload) {
             status = payload.data;
             ForgotPasswordStore.emitChange();
             break;
+        case Actions.FORGOT_PASSWORD_RESET_DONE:
+            status = payload.data;
+            ForgotPasswordStore.emitChange();
     }
 
     return true; // No errors. Needed by promise in Dispatcher.
