@@ -48,7 +48,12 @@ html, body {
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */
-    margin: 0 auto -60px;
+    margin: 0 auto -125px;
+}
+
+/*header*/
+.navbar-default {
+    /*background-color: #e7e7e7;*/
 }
 
 
@@ -56,11 +61,11 @@ html, body {
 
 /* Set the fixed height of the footer here */
 #push, #footer {
-    height: 114px;
+    height: 121px;
 }
 
 #footer {
-    height: 114px;
+    height: 125px;
     background: #333;
     color: #eee;
     padding: 10px;
@@ -81,14 +86,14 @@ html, body {
 /* Portrait & landscape phone */
 @media (max-width: 480px) {
     #push, #footer {
-        height: 130px;
+        height: 150px;
     }
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
     #push, #footer {
-        height: 130px;
+        height: 150px;
     }
 }
 

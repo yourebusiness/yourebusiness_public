@@ -1,5 +1,6 @@
-'use strict'
+'use strict';
 let React = window.React = require('react');
+import { Link } from 'react-router';
 
 module.exports = React.createClass({
 	render: function() {
@@ -30,10 +31,13 @@ module.exports = React.createClass({
 		                            </div>
 		                        </div>
 		                        <div className="form-group">
-		                            <div className="col-sm-offset-2 col-sm-10">
+		                            <div className="col-sm-offset-2 col-sm-4">
 		                                <div className="checkbox">
 		                                    <label><input type="checkbox" /> Remember me</label>
 		                                </div>
+		                            </div>
+		                            <div className="col-sm-offset-2 col-sm-4">
+		                                <Link to="forgotpassword">Forgot password</Link>
 		                            </div>
 		                        </div>
 		                        <div className="form-group">

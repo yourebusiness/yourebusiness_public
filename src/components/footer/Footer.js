@@ -13,7 +13,8 @@ export default React.createClass({
 			                    <h6>Navigation</h6>
 			                    <ul className="list-unstyled">
 			                        <li><Link to="home"><span className="glyphicon glyphicon-home"></span> Home</Link></li>
-			                        <li><a href="#"><span className="glyphicon glyphicon-wrench"></span> Services</a></li>
+			                        <li><Link to="services"><span className="glyphicon glyphicon-wrench"></span> Services</Link></li>
+			                        <li><Link to="customers"><span className="glyphicon glyphicon-user"></span> Customers</Link></li>
 			                        <li><Link to="about"><span className="glyphicon glyphicon-grain"></span> About Us</Link></li>
 			                    </ul>
 			                </div>
