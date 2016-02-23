@@ -9,7 +9,8 @@ function getStatus() {
 export default React.createClass({
 	getInitialState: function() {
 		return {
-			message: ""
+			message: "Please wait...",
+			displayLoader: true
 		}
 	},
 	componentWillMount: function() {
@@ -35,14 +36,18 @@ export default React.createClass({
 		ForgotPasswordStore.removeChangeListener(this._onStatusChange);
 	},
 	_onStatusChange: function() {
-		this.setState({message: getStatus()["statusDesc"]});
+		this.setState({message: getStatus()["statusDesc"], displayLoader: false});
 	},
 	render: function() {
+		let renderLoader = null;
+		if (this.state.displayLoader)
+			renderLoader = (<img style={{WebkitUserSelect: "none"}} src="public/images/ajax-loader-small.gif" />);
+
 		return (<div className="container">
 					<div className="row">
 						<div className="col-sm-5 col-md-3 col-lg-4">
 							<h4 className="page_title">Forgot Password</h4>
-                        	<p>{this.state.message}</p>
+                        	<span>{renderLoader}</span> <span>{this.state.message}</span>
 						</div>
 						<div className="col-sm-4 col-md-5 col-lg-4"></div>
 						<div className="col-sm-3 col-md-4 col-lg-4"></div>

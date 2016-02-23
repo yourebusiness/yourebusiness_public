@@ -27,12 +27,18 @@ export default {
 		});
 	},
 	forgotPasswordReset: function(hash) {
-		let data = {hash: hash};
 		let promise = new Promise(function(resolve, reject) {
+			/*var oReq = new XMLHttpRequest();
+			//oReq.addEventListener("load", reqListener);
+			oReq.open("PUT", "http://yourspa.com/index.php/api/forgotPasswordReset?hash=0PBKERM59SzVOmT63viDHxwWrqeytua2j8UnZXCF");
+			oReq.send();
+
+			return; */
+			let url = publicVar.getUnsecuredEndpointWithIndex().concat('/api/forgotPasswordReset')
+					.concat('?hash=').concat(hash);
 			$.ajax({
-	            type: "get",
-	            url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/forgotPasswordReset'),
-	            data: data,
+	            type: "PUT",
+	            url: url,
 	            success: function(data) {
 	                resolve(data);
 	            },
