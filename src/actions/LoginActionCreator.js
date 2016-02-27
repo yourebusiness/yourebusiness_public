@@ -5,10 +5,10 @@ import LoginDao from '../services/LoginDao';
 //import { HashLocation } from 'react-router';
 
 export default {
-	onSubmit: function(data) {
-		LoginDao.onSubmit(data);
+	onLoginSubmit: function(data) {
+		LoginDao.onLoginSubmit(data);
 	},
-	onSubmitDone: function() {
+	onLoginSubmitDone: function() {
 		console.log("Successfully login.");
 	}
 }

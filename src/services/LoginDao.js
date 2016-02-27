@@ -4,10 +4,12 @@ import LoginActionCreator from '../actions/LoginActionCreator';
 
 export default {
 	onSubmit: function(data) {
+		// curl http://yourebusinessrest.com/token.php -d 'grant_type=password&username=bshaffer&password=brent123'
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
-	            type: "post",
-	            url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/signIn2'),
+	            type: "POST",
+	            //url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/signIn2'),
+	            url: publicVar.getUnsecuredRESTWithoutIndex(),
 	            data: data,
 	            success: function(data) {
 	                resolve(data);
