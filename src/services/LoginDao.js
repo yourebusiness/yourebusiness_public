@@ -4,7 +4,7 @@ import LoginActionCreator from '../actions/LoginActionCreator';
 
 export default {
 	onSubmit: function(data) {
-		// curl http://yourebusinessrest.com/token.php -d 'grant_type=password&username=bshaffer&password=brent123'
+		// curl http://yourebusinessrest.com/mytoken.php -d 'grant_type=password&username=simply.amazing.wizard@gmail.com&password=1234'
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
 	            type: "POST",

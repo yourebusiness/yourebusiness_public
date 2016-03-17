@@ -9,6 +9,7 @@ export default keyMirror({
 
 	// login actions
 	LOGIN: null,
+	STORE_ACCESS_TOKEN: null,
 
 	// forgot password
 	FORGOT_PASSWORD_ERROR: null,
