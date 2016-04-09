@@ -16,7 +16,7 @@ LoginStore.dispatchToken = Dispatcher.register(function(payload) {
     switch(payload.actionType) {
         case Actions.STORE_ACCESS_TOKEN:
             accessToken = payload.data;
-            //RegistrationStore.emitChange();
+            LoginStore.emitChange();
             break;
     }
 

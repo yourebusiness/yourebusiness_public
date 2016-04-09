@@ -2,12 +2,33 @@ import React from 'react';
 import Alert from './Alert';
 import { Link } from 'react-router';
 import LoginActionCreator from '../actions/LoginActionCreator';
+import LoginStore from '../stores/LoginStore';
+
+function getAccessToken() {
+    return LoginStore.getAccessToken();
+}
 
 let Login = React.createClass({
     getInitialState: function() {
         return {
             displayAlert: false,
             errorMessage: ""
+        }
+    },
+    componentDidMount: function() {
+        LoginStore.addChangeListener(this._onLoginRequest);
+    },
+    componentWillUnmount: function() {
+        LoginStore.removeChangeListener(this._onLoginRequest);
+    },
+    _onLoginRequest: function() {
+        let accessToken = getAccessToken();
+        console.log(accessToken.access_token);
+
+        if (accessToken.access_token) {
+            console.log("Login here...");
+        } else {
+            console.log("Invalid authentication.");
         }
     },
     _onLoginSubmit: function(e) {
@@ -23,7 +44,7 @@ let Login = React.createClass({
             this.state.errorMessage = "Invalid Email.";
             this.state.displayAlert = true;
         }
-        if (password.length < 6) {
+        if (password.length < 4) {
             this.state.errorMessage = "Password should be at least 6 characters.";
             this.state.displayAlert = true;
         }
@@ -55,7 +76,7 @@ let Login = React.createClass({
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password">Password</label>
-                                    <input type="password" className="form-control" id="password" name="password" placeholder="Password" />
+                                    <input type="password" className="form-control" id="password" name="password" ref="password" placeholder="Password" />
                                 </div>
                                 <button type="submit" className="btn btn-primary" onClick={this._onLoginSubmit}>Login</button>
                                 <Link to="forgotpassword" className="pull-right">Forgot password</Link>

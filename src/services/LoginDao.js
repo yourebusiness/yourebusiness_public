@@ -3,7 +3,7 @@ import publicVar from '../constants/publicVar';
 import LoginActionCreator from '../actions/LoginActionCreator';
 
 export default {
-	onSubmit: function(data) {
+	onLoginSubmit: function(data) {
 		// curl http://yourebusinessrest.com/mytoken.php -d 'grant_type=password&username=simply.amazing.wizard@gmail.com&password=1234'
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
@@ -23,7 +23,7 @@ export default {
 		});
 
 		promise.then(function(data) {
-			LoginActionCreator.onSubmitDone(data);
+			LoginActionCreator.onLoginSubmitDone(data);
 		}, function(reason) {
 			console.log('Error registering: ', reason);
 		});

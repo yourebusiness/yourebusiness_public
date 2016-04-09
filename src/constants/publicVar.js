@@ -14,7 +14,7 @@ const endpoint = {
 		return this.unSecuredScheme + this.domain;
 	},
 	getUnsecuredRESTWithoutIndex: function() {
-		return this.unSecuredScheme.concat(this.restTokenUrl, restTokenUrlPath);
+		return this.unSecuredScheme.concat(this.restTokenUrl, this.restTokenUrlPath);
 	}
 }
 
