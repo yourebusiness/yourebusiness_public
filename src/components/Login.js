@@ -23,13 +23,11 @@ let Login = React.createClass({
     },
     _onLoginRequest: function() {
         let accessToken = getAccessToken();
-        console.log(accessToken.access_token);
 
-        if (accessToken.access_token) {
-            console.log("Login here...");
-        } else {
+        if (accessToken.access_token)
+            LoginActionCreator.loginToAdmin(accessToken.access_token);
+        else
             console.log("Invalid authentication.");
-        }
     },
     _onLoginSubmit: function(e) {
         e.preventDefault();

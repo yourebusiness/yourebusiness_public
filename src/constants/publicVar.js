@@ -8,10 +8,10 @@ const endpoint = {
 	restTokenUrlPath: '/mytoken.php',
 
 	getUnsecuredEndpointWithIndex: function() {
-		return this.unSecuredScheme + this.domainWithIndex;
+		return this.unSecuredScheme.concat(this.domainWithIndex);
 	},
 	getUnsecuredEndpointWithoutIndex: function() {
-		return this.unSecuredScheme + this.domain;
+		return this.unSecuredScheme.concat(this.domain);
 	},
 	getUnsecuredRESTWithoutIndex: function() {
 		return this.unSecuredScheme.concat(this.restTokenUrl, this.restTokenUrlPath);

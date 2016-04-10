@@ -27,5 +27,23 @@ export default {
 		}, function(reason) {
 			console.log('Error registering: ', reason);
 		});
+	},
+	loginToAdmin: function(accessToken) {
+		let token = {access_token: accessToken};
+		console.log(token);
+		$.ajax({
+            type: "POST",
+            url: publicVar.getUnsecuredEndpointWithIndex().concat('/admin'),
+            data: token,
+            success: function(data) {
+            	if (data.success)
+            		window.location = publicVar.getUnsecuredEndpointWithIndex().concat('/admin');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+            	let error = {};
+            	error.jqXHR = jqXHR; error.textStatus = textStatus; error.errorThrown = errorThrown;
+                reject(error);
+            }
+        });
 	}
 };
