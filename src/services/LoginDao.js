@@ -37,7 +37,7 @@ export default {
             data: token,
             success: function(data) {
             	if (data.success)
-            		window.location = publicVar.getUnsecuredEndpointWithIndex().concat('/admin');
+            		window.location = publicVar.getUnsecuredAdminDomainAndPath().concat('/',accessToken);
             },
             error: function(jqXHR, textStatus, errorThrown) {
             	let error = {};
