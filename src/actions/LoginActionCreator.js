@@ -9,6 +9,7 @@ export default {
 		LoginDao.onLoginSubmit(data);
 	},
 	onLoginSubmitDone: function(data) {	//console.log("Successfully login.");
+		console.log("data: ", data);
 		Dispatcher.dispatch({
 			actionType: Actions.STORE_ACCESS_TOKEN,
 			data
