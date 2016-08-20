@@ -38,10 +38,10 @@ module.exports = React.createClass({
         this.state.errorMessage = "";
 
         let data = {},
-        email = this.refs.username.value.trim(),
+        username = this.refs.username.value.trim(),
         password = this.refs.password.value.trim();
 
-        if (email.length < 6) {
+        if (username.length < 6) {
             this.state.errorMessage = "Invalid Email.";
             this.state.displayAlert = true;
         }
@@ -50,7 +50,7 @@ module.exports = React.createClass({
             this.state.displayAlert = true;
         }
 
-        data.username = email;
+        data.username = username;
         data.password = password;
         data.grant_type = 'password';
 
@@ -76,7 +76,7 @@ module.exports = React.createClass({
 		                        <div className="form-group">
 		                             <label htmlFor="inputEmail" className="col-sm-2 control-label">Email</label>
 		                             <div className="col-sm-8">
-		                                <input type="email" className="form-control" id="email" name="username" ref="username" placeholder="You email here" />
+		                                <input type="email" className="form-control" id="username" name="username" ref="username" placeholder="You email here" />
 		                             </div>
 		                             <div col="className-sm-2"></div>
 		                        </div>
