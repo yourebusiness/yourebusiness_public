@@ -25,7 +25,7 @@ export default {
 		promise.then(function(data) {
 			LoginActionCreator.onLoginSubmitDone(data);
 		}, function(reason) {
-			console.log('Error registering: ', reason);
+			console.log('Error logging-in: ', reason);
 		});
 	},
 	loginToAdmin: function(accessToken) {
