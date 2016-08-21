@@ -25,12 +25,10 @@ module.exports = React.createClass({
     _onLoginRequest: function() {
         let accessToken = getAccessToken();
 
-        // console.log("accessToken: ", accessToken);
-
         if (accessToken.access_token)
             LoginActionCreator.loginToAdmin(accessToken.access_token);
         else
-            console.log("Invalid authentication 2.");
+            console.log("Invalid authentication.");
     },
     _onLoginSubmit: function(e) {
         e.preventDefault();
