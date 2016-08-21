@@ -30,7 +30,6 @@ export default {
 	},
 	loginToAdmin: function(accessToken) {
 		let token = {access_token: accessToken};
-		console.log(token);
 		$.ajax({
             type: "POST",
             url: publicVar.getUnsecuredEndpointWithIndex().concat('/admin'),
