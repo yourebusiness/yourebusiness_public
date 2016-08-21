@@ -5,9 +5,9 @@ const endpoint = {
 	domainWithIndex: 'yourebusiness.com/index.php',
 
 	restTokenUrl: 'yourebusinessrest.com',
-	restTokenUrlPath: '/mytoken.php',
+	restTokenUrlPath: '/token.php',
 
-	adminDomainAndPath: 'http://localhost:8000/#/app',
+	adminDomainAndPath: 'http://127.0.0.1:8000/#/app',
 
 	getUnsecuredEndpointWithIndex: function() {
 		return this.unSecuredScheme.concat(this.domainWithIndex);
