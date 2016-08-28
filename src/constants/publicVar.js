@@ -2,7 +2,7 @@ const endpoint = {
 	securedScheme: 'https://',
 	unSecuredScheme: 'http://',
 	domain: 'yourebusiness.com',
-	domainWithIndex: 'yourebusiness.com/index.php',
+	domainWithIndex: 'yourebusiness.com',
 
 	restTokenUrl: 'yourebusinessrest.com',
 	restTokenUrlPath: '/token.php',

@@ -6,9 +6,10 @@ export default {
 	getProvinces: function() {
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
-				url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/getProvinces'),
+				//url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/getProvinces'),
+				url: publicVar.getUnsecuredEndpointWithIndex().concat('/province'),
 				success: function(data, textStatus, jqXHR) {
-					resolve(data);		
+					resolve(data);
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 					reject(errorThrown);
@@ -25,7 +26,8 @@ export default {
 	getCitiesByProvinceId: function(id) {
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
-				url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/getCity/', id),
+				//url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/getCity/', id),
+				url: publicVar.getUnsecuredEndpointWithIndex().concat('/citiesinprovince/', id),
 	            success:function(data) {
 	                resolve(data);
 	            },
