@@ -4,8 +4,8 @@ const endpoint = {
 	domain: 'yourebusiness.com',
 	domainWithIndex: 'yourebusiness.com',
 
-	restTokenUrl: 'yourebusinessrest.com',
-	restTokenUrlPath: '/token.php',
+	restTokenUrl: 'yourebusiness.com',
+	restTokenUrlPath: '/oauth/token',
 
 	adminDomainAndPath: 'http://127.0.0.1:8000/#/app',
 
