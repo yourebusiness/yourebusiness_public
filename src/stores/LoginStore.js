@@ -8,6 +8,7 @@ let accessToken = null;
 
 let LoginStore = assign(BaseStore(), {
     getAccessToken: function() {
+        // console.log("accessToken: ", accessToken);
         return accessToken;
     }
 });
