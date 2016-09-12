@@ -11,7 +11,6 @@ export default {
 		let promise = new Promise(function(resolve, reject) {
 			$.ajax({
 	            type: "POST",
-	            //url: publicVar.getUnsecuredEndpointWithIndex().concat('/api/signIn2'),
 	            url: publicVar.getUnsecuredRESTWithoutIndex(),
 	            data: data,
 	            success: function(data) {
@@ -33,7 +32,7 @@ export default {
 	},
 	loginToAdmin: function(accessToken) {
 		//window.location = "https://www.yahoo.com";
-		window.location = publicVar.getUnsecuredEndpointWithoutIndex().concat('/admin');
+		window.location = publicVar.getUnsecuredEndpointWithoutIndex().concat('/admin/#/app/', accessToken);
 		/*let token = {access_token: accessToken};
 		$.ajax({
             type: "POST",
